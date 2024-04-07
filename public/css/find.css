@@ -19,20 +19,23 @@ h2{
     text-align:center;
     color:white;
 }
-
+#hed{
+    text-align:center;
+    margin-top:5px;
+}
+.scol{
+   
+    overflow-x:auto;
+}
 .main{
     margin-top:20px;
-    margin-left:25px;
-    margin-right:10px;
     display:flex;
     justify-content:center;
     align-items:center;
-    flex-direction: column;
+   
  
 }
-.scol{
-    overflow-x: auto;
-}
+
 table{
   
     width:100%;
