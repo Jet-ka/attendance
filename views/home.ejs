@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetlin tution system</title>
+   
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!--1sst section-->
+    <div class="navbar">
+        <div>
+            <h2 >Attendance System</h2>
+        </div>
+       
+      </div>  
+      <!--2nd section-->   
+<div class="main">
+    <h1 id="date"></h1>
+    <a href="/create" id="createlink">Create new Student</a>
+    <a href="/" id="createlink">Logout</a>
+</div>
+<!--3rd section-->
+<div class="boxone">   
+ <table>
+    <!-- tittle of info-->
+ 
+     <!--1st row-->
+<tr>
+   
+   <th>Call</th>
+    <th>Name</th>
+    <th>Class</th>
+    <th>Attendance</th>
+    <th>Total Attendance</th>
+    <th>Fees</th>
+    <th>Tuition days</th>
+    <th>Corection</th>
+</tr>
+
+
+<!--2nd row information dynamically fill |-->
+
+<% infos.forEach(function(info){ %>
+
+<tr>
+   
+<td>
+   <a href="tel:+91<%=info.phone%>"><i class="fa fa-phone" style="font-size:30px;color:rgb(13, 197, 84)"></i></a> 
+    
+    </td>
+<td><%=info.name%></td>
+<td ><%=info.clas%></td>
+
+<td>
+    <form action="/result" method="post">
+<!--attendance present or absent details fill-->
+ <!-- Radio buttons for attendance -->
+<input type="radio"   name="attendance" value="present"> Present
+ <input type="radio"  name="attendance" value="absent"> Absent
+ <input type="hidden" name="id" value="<%= info._id %>">
+ <button id="radiosubmitbutton">Submit</button>
+</form>
+<!-- Hidden input field for student ID 
+<input type="hidden" name="id" value="<%= info._id %>"> -->
+</td>
+<!--total attendance value-->
+<!--- <td><%= info.totalattendence %></td> -->
+<td>Present: <%= info.presentDays %>, Absent: <%= info.absentDays %></td>
+<td> 
+   <%=info.fees%>    
+</td>
+<td>
+<%=info.daysmonth%>
+</td>
+<td>
+    <div class="edit">
+    <form action="/edit/<%=info._id%>" method="get">
+    <a href="/edit/<%=info._id%>"> <i class="fa fa-edit" style="font-size:30px;color:green"></i></a>    
+   
+</form>
+<form action="/delete/<%=info._id%>" method="get">
+    <a href="/delete/<%=info._id%>"> <i class="fa fa-trash" style="font-size:30px;color:red"></i></a>
+   
+    </form>
+</div>
+</td>
+
+
+</tr>
+
+<%})%>
+
+ </table>
+        </div>
+<!--4th section-->
+<div class="boxthree">
+<button class=" rank record ">Submit Record</button>
+<button class="rank calculate">Calculate</button>
+<button class="rank find">Find</button>
+
+<div id="ullua">
+    <p ></p>
+</div>
+<!--record form will appear-->
+<div class="one">
+<form action="/record" method="post">
+<label for="name">Month:</label>
+<select name="month" class="crete" required>
+    <option value="january">January</option>
+    <option value="february">February</option>
+    <option value="march">March</option>
+    <option value="april">April</option>
+    <option value="may">May</option>
+    <option value="june">June</option>
+    <option value="july">July</option>
+    <option value="august">August</option>
+    <option value="september">September</option>
+    <option value="october">October</option>
+    <option value="november">November</option>
+    <option value="december">December</option>
+</select><br><br>
+<label for="name">Name:</label>
+<input type="text " name="name" class="crete" required><br><br>
+<label for="cls">Class:</label>
+<input type="number " name="cls" class="crete" required><br><br>
+<label for="attendance">Total attendance:</label>
+<input type="number " name="attendance" class="crete" required><br><br>
+<label for="fees">Fees:</label>
+<select name="fees" id="" class="crete" required>
+    <option value="paid">Paid</option>
+    <option value="unpaid">Unpaid</option>
+</select> <br><br>
+<label for="amount">Amount:</label>
+<input type="number " name="amount" class="crete" required><br><br>
+<button>Submit</button>
+
+
+</form>
+</div>
+<!--calculate form appear-->
+<div class="two">
+
+    <input type="number" id="calo" class="crete" placeholder="Days present" required><br><br>
+    <input type="number" id="calt" class="crete"  placeholder="Total days" required><br><br>
+    <input type="number" id="calth" class="crete" placeholder="amount charge" required> <br><br>
+   <button onclick="count()">Calculate</button>
+
+
+</div>
+
+<!--find particular student all information-->
+<div class="three">
+<form action="/find" method="post">
+    <input type="text" name="name" id="calo" class="crete" placeholder="Student name" required><br><br>
+    <input type="number" name="cls" id="calt" class="crete"  placeholder="class" required><br><br>
+   
+   <button>Find</button>
+</form>
+
+</div>
+
+
+</div>
+<div class="fot">&copy;<h5>Jetlin Karkha&Co.2024</h5></div>
+<script src="js/index.js"></script>
+<script src="update/js/index.js"></script>
+<script src="finddel/js/index.js"></script>
+<script src="submit/js/index.js"></script>
+
+</body>
+</html>

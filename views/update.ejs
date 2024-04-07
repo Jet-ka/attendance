@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetlin attendance system</title>
+    <link rel="stylesheet" href=" /css/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div><h2>
+            Attendance System
+        </h2>
+            </div>
+
+      </div>
+    <div class="box">
+        <div class="cardtwo">
+        
+            <form action="/update/<%=infos._id%>" method="post">
+                <label>Name:-</label>
+                <input type="text" class="crete" name="name" value="<%=infos.name%>" required><br><br>
+                <label>Class:-</label>
+               <input type="number" class="crete" name="clas" value="<%=infos.clas%>" required><br><br>
+               <label>Month:-</label>
+               <input type="text" class="crete" name="month" value="<%=infos.month%>" required><br><br>
+               <lebel>Fees:-</lebel>
+               <input type="number" class="crete" name="fees" value="<%=infos.fees%>" required><br><br>
+               <label >Total days of tuitions:-</label>
+               <input type="number" class="crete" name="daysmonth" value="<%=infos.daysmonth%>"required><br><br>
+               <label>Presentdays:-</label>
+               <input type="number" class="crete" name="presentDays" value="<%=infos.presentDays%>"required><br><br>
+               <lebel>Absentdays:-</lebel>
+               <input type="number" class="crete" name="absentDays" value="<%=infos.absentDays%>" required><br><br> 
+              <button type="submit">Submit</button>
+             
+                 </form>
+     
+    </div>
+       </div> 
+       <div class="fot">&copy;<h5>Jetlin Karkha&Co.2024</h5></div>
+       <script src="js/index.js"></script>
+</body>
+</html>

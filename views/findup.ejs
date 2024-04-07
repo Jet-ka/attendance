@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetlin attendance system</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+      <!--1sst section-->
+     
+        <div class="navbar">
+          <div>
+              <h2>Attendance System</h2>
+          </div>
+         
+         
+      </div>  
+    <div class="boxfour">
+     
+        <form action="/submit/<%=info._id%>" method="post">
+       
+        <label for="attendance">Total attendance:</label>
+        <input type="number " name="attendance" class="crete" value="<%=info.attendance%>" required><br><br>
+        <label for="fees">Fees:</label>
+        <select name="fees" id="" class="crete"  required>
+            <option value="paid">Paid</option>
+            <option value="unpaid">Unpaid</option>
+        </select> <br><br>
+       
+        <button>Submit</button>
+        
+        
+        </form>
+    
+        </div>
+        <div class="fot">&copy;<h5>Jetlin Karkha&Co.2024</h5></div>
+        <script src="js/index.js"></script>
+</body>
+</html>
