@@ -76,7 +76,8 @@ const response= await student.find({});
 res.render('home.ejs',{infos:response});
 
 } catch (error) {
- console.error(error)   
+ //console.error(error)  
+ res.send('error') ;
 }
 
 });
