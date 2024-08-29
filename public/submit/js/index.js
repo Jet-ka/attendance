@@ -105,7 +105,7 @@ switch (month) {
                      if(num==31){
                         document.getElementById('date').textContent='Records days since end of the Month';
                      }else {
-                     document.getElementById('date').textContent=num+' Austust '+daysname[one];
+                     document.getElementById('date').textContent=num+' August '+daysname[one];
 }
                      break; 
                      case 9:
