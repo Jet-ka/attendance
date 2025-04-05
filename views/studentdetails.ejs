@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetlin attendance system</title>
+    <!-- <link rel="stylesheet" href="css/find.css">
+    <link rel="stylesheet" href="submit/css/find.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f0fb; /* Light violet background */
+    }
+
+    .intro {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .intro h2 {
+        color: #4c51bf; /* Violet heading color */
+    }
+
+    .daily {
+        background-color: #fff;
+        padding: 20px;
+        margin: 20px auto;
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+         border: 1px solid #e0e0e0;
+         text-align: center;
+    }
+
+    .daily h4 {
+        color: #7e57c2; /* Lighter violet for heading */
+    }
+
+    .daily p {
+        margin: 8px 0;
+        color: #555;
+    }
+
+    .main {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+         border: 1px solid #e0e0e0;
+    }
+
+    .main h2 {
+        color: #4c51bf; /* Violet heading color */
+        margin-bottom: 25px;
+    }
+
+    .scol {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    th, td {
+        padding: 15px;
+        border-bottom: 1px solid #ede7f6; /* Very light violet border */
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #f3e5f5; /* Lightest violet for header */
+        color: #5e35b1; /* Darker violet for header text */
+        font-weight: 600;
+    }
+
+    tr:hover {
+        background-color: #f3e5f5; /* Lightest violet hover */
+    }
+    tr:nth-child(even) {
+        background-color: #f8f0fb; /* Very light violet for even rows */
+    }
+
+    .fot {
+        text-align: center;
+        padding: 15px;
+        background-color: #5e35b1; /* Darker violet footer */
+        color: #fff;
+        margin-top: 20px;
+        border-top: 1px solid #4527a0;
+    }
+
+    .fot h5 {
+        font-size: 14px;
+        margin: 0;
+        font-weight: 400;
+    }
+
+    @media screen and (max-width: 768px) {
+        .main {
+            width: 95%;
+            padding: 15px;
+        }
+        .daily {
+            width: 95%;
+            padding: 15px;
+        }
+        table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        th, td {
+            min-width: 120px;
+             padding: 12px;
+        }
+         .intro h2{
+            font-size: 20px;
+        }
+         .daily h4{
+            font-size: 18px;
+        }
+    }
+
+    .btn-primary {
+        background-color: #7e57c2; /* Lighter violet */
+        border-color: #673ab7;
+    }
+
+    .btn-primary:hover {
+        background-color: #673ab7;
+        border-color: #512da8;
+    }
+
+    .btn-danger {
+        background-color: #e91e63; /* Pinkish-red (accent) */
+        border-color: #c2185b;
+    }
+
+    .btn-danger:hover {
+        background-color: #c2185b;
+        border-color: #ad1457;
+    }
+</style>
+<body>
+       <!--1sst section-->
+       <nav class="navbar bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Attendance</span>
+         <a href="/student" class="btn btn-danger">Logout</a>
+        </div>
+      </nav>
+     
+<!--2nd section-->
+<div class="intro">
+    <h2>Hi <%=aten.name%></h2>
+</div>
+
+<!---3rd section-->
+<div class="daily">
+    <h4>In Month</h4>
+    <p>Present : <%= aten.presentDays%></p>
+    <p>Absentsent : <%=aten.absentDays%></p>
+</div>
+
+
+
+<!--4th section-->
+
+
+    <div class="main">
+    <h2>Fees</h2>
+ <div class="scol">
+        <table>
+            <tr>
+            <th>Month</th>
+           
+            <th>Atttendance</th>
+            <th>Status</th>
+            <th>Amount</th>
+          
+            </tr>
+<!--all information about that person-->
+<% infos.forEach(function(info){%>
+
+
+    <tr>
+        <td><%=info.month %></td>
+      
+        <td><%=info.attendance %></td>
+        <td><%=info.fees %></td>
+        <td><%=info.amount%></td>
+       
+    </tr>
+<%})%>
+
+        </table>
+    </div>
+    
+    </div>
+    <div class="fot"><h5>&copy;Jetlin Karkha&Co.2025</h5></div>
+    <script src="js/index.js"></script>
+
+</body>
+</html>

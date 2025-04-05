@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="bg-white rounded-lg shadow-md p-8 max-w-md w-full">
+        <div class="flex justify-center mb-4">
+            <img src="https://placehold.co/100x100/FF0000/FFFFFF?text=Error" alt="Error Icon" class="rounded-full">
+        </div>
+        <h1 class="text-2xl font-semibold text-red-600 text-center mb-2">Authentication Failed</h1>
+        <p class="text-gray-700 text-center mb-4">Invalid login credentials. Please double-check your username and password.</p>
+        <div class="text-center">
+            <a href="/student" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline">
+                Try Again
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+

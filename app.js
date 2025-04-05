@@ -108,7 +108,7 @@ app.post('/result', async (req, res) => {
 
       //  res.redirect('/home'); // Redirect to the desired page after saving
     } catch (error) {
-        console.error(error);
+        //console.error(error);
         res.status(500).send('Error updating attendance');
     }
 });
@@ -140,7 +140,8 @@ try {
  //res.redirect('/home');
    // res.render('home.ejs',{infos:result});
 }catch(error) {
-    console.error(error)
+   // console.error(error)
+    res.send('error')
 }
 
 });
@@ -153,7 +154,8 @@ try {
  res.render('home.ejs',{infos:response});
 // res.redirect('/home');
 } catch (error) {
-  console.error(error)  
+  //console.error(error)  
+  res.send('error')
 }    
 });
 
@@ -176,8 +178,8 @@ app.post('/record',async function(req,res){
 
 
     }catch(err){
-        //    res.status(500).send('Internal Server Error');
-        console.log(err);
+           res.status(500).send('Internal Server Error');
+       // console.log(err);
     }
 });
 
@@ -192,7 +194,8 @@ app.post('/find', async function(req,res){
    // console.log(result);
     res.render('find.ejs',{infos:result});
     }catch(err){
-        console.log(err);
+       // console.log(err);
+       res.send('error')
     }
 });
 
@@ -207,7 +210,8 @@ app.get('/findup/:id', async function(req,res){
         res.send('404')
      }
     } catch (error) {
-        console.log(error)
+      //  console.log(error)
+      res.send('error')
     }
 });
 app.post('/submit/:id', async function(req,res){
@@ -221,7 +225,8 @@ app.post('/submit/:id', async function(req,res){
      res.render('home.ejs',{infos:response});
      //  res.redirect('/home');
     } catch (error) {                                            
-       console.log(error) 
+       //console.log(error) 
+       res.send('error')
     }
 });
 
@@ -233,9 +238,85 @@ app.get('/finddel/:id', async function(req,res){
        res.render('home.ejs',{infos:response});
        
     } catch (error) {
-      console.log(error)  
+     // console.log(error)  
+     res.send("error")
+    }
+
+});
+
+//student login page
+app.get('/student',async (req,res)=>{
+    res.render('studentlogin.ejs')
+})
+
+app.post('/studentlogin', async function(req, res) {
+    try{
+const name=req.body.name;
+const password=req.body.password;
+
+const nam= await student.findOne({name:name})
+if(name===nam.name && password==="JET20"){
+    const result= await record.find({
+                 name:name
+             })
+
+             const attend= await student.findOne({
+                           name:name
+                        })
+
+
+   res.render('studentdetails.ejs', {
+    infos: result,
+    aten: attend
+  });
+
+
+// if(name==="Bib" && password==="123"){
+//     const result= await record.find({
+//         name:"Bibhab"
+//     })
+
+// //if i use find() then value goes in array even if single document so in ejs we need use attend[0].name
+
+// //     const attend= await student.find({
+// //         name:"Bibhab"
+// //     })
+// //    console.log(attend)
+
+// //give single document so no need use attend[0].name like
+// const attend= await student.findOne({
+//             name:"Bibhab"
+//         })
+
+//    res.render('studentdetails.ejs', {
+//     infos: result,
+//     aten: attend
+//   });
+// } else if(name==="Vow" && password==="123"){
+//     const result= await record.find({
+//         name:"Vowel"
+//     })
+//     const attend= await student.findOne({
+//         name:"Vowel"
+//     })
+//    // console.log(result)
+//     res.render('studentdetails.ejs',{infos:result,aten:attend})
+ }else(
+    res.render('error.ejs')
+//    // res.send('invaild details')
+ )
+
+
+
+
+    }catch{
+        res.render('error.ejs')
     }
 });
+
+
+
+
 
 
 

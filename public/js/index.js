@@ -131,7 +131,7 @@ switch (month) {
                               break; 
                               case 12:
                                  if(num==31){
-                                    document.getElementById('date').textContent='I m ur future u donnot dissappoint u made this so you can success at any field so enjoy Happy New Year.';
+                                    document.getElementById('date').textContent='I m ur future u donot dissappoint u made this so you can success at any field so enjoy Happy New Year.';
                                  }else {
                                  document.getElementById('date').textContent=num+' December '+daysname[one];
 }
