@@ -45,7 +45,8 @@ app.post('/login', async function(req,res){
         res.render('home.ejs',{infos:response});
       }
     } catch (error) {
-        console.log(error)
+      //  console.log(error)
+      res.send("error")
     }
 })
 
@@ -258,11 +259,11 @@ const nam= await student.findOne({name:name})
 if(name===nam.name && password==="JET20"){
     const result= await record.find({
                  name:name
-             })
+  })
 
-             const attend= await student.findOne({
+  const attend= await student.findOne({
                            name:name
-                        })
+                         })
 
 
    res.render('studentdetails.ejs', {
@@ -270,6 +271,8 @@ if(name===nam.name && password==="JET20"){
     aten: attend
   });
 
+
+  // i can use below one also
 
 // if(name==="Bib" && password==="123"){
 //     const result= await record.find({
