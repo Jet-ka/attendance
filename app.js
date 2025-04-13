@@ -231,12 +231,16 @@ app.post('/submit/:id', async function(req,res){
     }
 });
 
+//app.get
 app.get('/finddel/:id', async function(req,res){
     try {
        const id=req.params.id;
+      
        const result= await record.findByIdAndDelete(id);
        const response = await student.find({});
        res.render('home.ejs',{infos:response});
+      
+   
        
     } catch (error) {
      // console.log(error)  
