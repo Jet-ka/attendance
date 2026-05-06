@@ -15,7 +15,15 @@ app.use(express.static('public'));
 
 //datbase
 //mongoose.connect('mongodb://127.0.0.1:27017/tuitiondb');
+
+// service marile type search box t mongodb ba mongoose ahibo
+
 mongoose.connect(process.env.MONGODB_URL);
+// Wrap the URI in quotes and remove the extra )
+
+
+
+
 //signin
 //login
 //app.post('/', async function(req,res){
@@ -321,6 +329,32 @@ if(name===nam.name && password==="JET20"){
     }
 });
 
+
+
+// moi sob delete korilu agar student r name student schema r pora so atia record schemar student nam he ase
+//tak tolot dia r dore sabo parim kiman toka dise and ni aru akebare sob delete koribo parim
+
+
+
+ //app.get('/stu', async function(req,res){
+
+  //  try {  const stu=await record.find({});
+  //  console.log(stu)
+ // }
+     //   catch (error) { 
+          //  console.log("error bro")}
+///})
+
+ app.get('/delete', async function(req,res){
+    try {
+      const del=await record.deleteMany({});
+      res.send('all record deleted')
+    }
+        catch (error) {
+           console.log(error)
+        }
+        })
+    
 
 
 
